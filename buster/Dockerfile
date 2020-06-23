@@ -12,6 +12,7 @@ apt-get install -y \
   gnupg \
   software-properties-common \
   jq \
+  git \
   lsb-release \
   && \
 apt-get autoremove -y && \
