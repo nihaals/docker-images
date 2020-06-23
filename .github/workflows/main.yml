@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
         DOCKER_USERNAME: 'orangutan'
-    name: ${{ matrix.name }}
+    name: ${{ matrix.human-name }}
     steps:
       - uses: actions/checkout@v2
       - name: Build and push ${{ matrix.human-name }} to GitHub Packages
