@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 from typing import Dict, List
 
-root_path = Path(__file__).parent
+root_path = Path(__file__).parent.joinpath('images')
 
 
 class Version:
