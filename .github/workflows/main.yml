@@ -21,7 +21,7 @@ jobs:
           python-version: ${{ env.python-version }}
       - name: Generate matrix
         id: generate-matrix
-        run: echo "::set-output name=matrix::$(python generate-jobs.py)"
+        run: echo "::set-output name=matrix::$(python generate-matrix.py)"
 
   release:
     needs: generate-matrix
