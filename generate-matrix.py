@@ -26,7 +26,7 @@ class Image:
         image_path = root_path.joinpath(path)
         if image_path.joinpath('info.json').exists() is False:
             raise ValueError(f"Invalid file strucutre for {path}. No info.json")
-        with open(os.path.join(path, 'info.json')) as fp:
+        with open(root_path.joinpath(path, 'info.json')) as fp:
             info_json = json.load(fp)
         aliases: Dict[str, str] = info_json['aliases']
         sub_paths: List[str] = []
