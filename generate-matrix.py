@@ -2,7 +2,7 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 root_path = Path(__file__).parent
 
@@ -50,7 +50,12 @@ class Image:
 
     def as_out(self) -> List[Dict[str, str]]:
         return [
-            {'human-name': self.name, 'path': version.path, 'image-name': self.image_name, 'tags': ','.join(version.tags)}
+            {
+                'human-name': f'{self.name}: {version.tags[0]}' if len(self.versions) > 1 else self.name,
+                'path': version.path,
+                'image-name': self.image_name,
+                'tags': ','.join(version.tags),
+            }
             for version in self.versions
         ]
 
