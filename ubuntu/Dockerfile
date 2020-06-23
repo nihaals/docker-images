@@ -13,6 +13,7 @@ apt-get install -y \
   software-properties-common \
   jq \
   git \
+  build-essential \
   lsb-core \
   && \
 apt-get autoremove -y && \
