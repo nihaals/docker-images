@@ -1,0 +1,45 @@
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  generate-matrix:
+    name: Generate matrix
+    runs-on: ubuntu-latest
+    env:
+      python-version: '3.8'
+    outputs:
+      matrix: ${{ steps.generate-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python ${{ env.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.python-version }}
+      - name: Generate matrix
+        id: generate-matrix
+        run: echo "::set-output name=matrix::$(python generate-jobs.py)"
+
+  release:
+    needs: generate-matrix
+    strategy:
+      matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
+      fail-fast: false
+    runs-on: ubuntu-latest
+    name: ${{ matrix.name }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and push ${{ matrix.name }} to GitHub Packages
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          workdir: ${{ matrix.path }}
+          name: ${{ github.repository }}/${{ matrix.image-name }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          tags: "latest"
+          buildoptions: "--pull"
+          cache: ${{ github.event_name != 'schedule' }}
