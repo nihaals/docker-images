@@ -1,1 +1,10 @@
-*
+.github
+.git
+.vscode
+.dockerignore
+.editorconfig
+.flake8
+generate-matrix.py
+poetry.lock
+pyproject.toml
+README.md
