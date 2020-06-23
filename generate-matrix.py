@@ -52,7 +52,7 @@ class Image:
         return [
             {
                 'human-name': f'{self.name}: {version.tags[0]}' if len(self.versions) > 1 else self.name,
-                'path': version.path,
+                'path': os.path.join('images', version.path),
                 'image-name': self.image_name,
                 'tags': ','.join(version.tags),
             }
