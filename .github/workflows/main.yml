@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-        - images
+        - images/**
         - .github/workflows
         - generate-matrix.py
   schedule:
