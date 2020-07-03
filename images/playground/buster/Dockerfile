@@ -14,8 +14,10 @@ RUN apt-get update \
     less \
     lsb-release \
     make \
+    nano \
     software-properties-common \
     sudo \
+    vim \
     wget \
 && apt-get autoremove -y \
 && apt-get clean -y \
