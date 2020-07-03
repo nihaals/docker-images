@@ -9,6 +9,7 @@ RUN apk update \
     git \
     gnupg \
     jq \
+    less \
     make \
     nano \
     sudo \

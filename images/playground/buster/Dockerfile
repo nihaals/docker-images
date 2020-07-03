@@ -11,6 +11,7 @@ RUN apt-get update \
     git \
     gnupg \
     jq \
+    less \
     lsb-release \
     make \
     software-properties-common \
