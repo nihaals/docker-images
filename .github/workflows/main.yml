@@ -5,9 +5,9 @@ on:
     branches:
       - master
     paths:
-        - images/**
-        - .github/workflows/**
-        - generate-matrix.py
+      - images/**
+      - .github/workflows/**
+      - generate-matrix.py
   schedule:
     - cron: "0 12 * * 6"
 
