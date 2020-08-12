@@ -16,7 +16,7 @@ jobs:
     name: Generate matrix
     runs-on: ubuntu-latest
     env:
-      python-version: '3.8'
+      python-version: "3.8"
     outputs:
       matrix: ${{ steps.generate-matrix.outputs.matrix }}
     steps:
@@ -36,7 +36,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     env:
-        DOCKER_USERNAME: 'orangutan'
+      DOCKER_USERNAME: "orangutan"
     name: ${{ matrix.human-name }}
     steps:
       - uses: actions/checkout@v2
