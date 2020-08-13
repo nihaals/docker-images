@@ -9,7 +9,7 @@ on:
       - .github/workflows/**
       - generate-matrix.py
   schedule:
-    - cron: "0 12 * * 6"
+    - cron: "0 0 * * *"
 
 jobs:
   generate-matrix:
