@@ -1,5 +1,6 @@
 {
   "aliases": {
-    "latest": "ubuntu-20.04"
+    "ubuntu": "ubuntu-20.04",
+    "homebrew-ubuntu": "homebrew-ubuntu-20.04"
   }
 }
