@@ -1,5 +1,7 @@
 FROM archlinux:latest
 
+ENV SHELL /bin/bash
+
 ARG USERNAME=user
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
@@ -28,5 +30,6 @@ RUN echo "[multilib]" >> /etc/pacman.conf \
     vim \
     wget \
 && rm -rf /home/${USERNAME}/.cache
+
 USER $USERNAME
 CMD ["/bin/bash"]
