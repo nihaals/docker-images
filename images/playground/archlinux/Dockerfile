@@ -11,7 +11,6 @@ RUN echo "[multilib]" >> /etc/pacman.conf \
 && pacman --noprogressbar --noconfirm --needed -Syyu \
     base-devel git \
     curl \
-    git \
     gnupg \
     jq \
     less \
