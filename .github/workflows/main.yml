@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build and push ${{ matrix.human-name }} to Docker Hub
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           workdir: ${{ matrix.path }}
           name: ${{ env.DOCKER_USERNAME }}/${{ matrix.image-name }}
