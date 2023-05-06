@@ -25,8 +25,7 @@ RUN apt-get update \
 && chmod 0440 /etc/sudoers.d/$USERNAME \
 && sudo -u $USERNAME bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 USER $USERNAME
-RUN brew install -s perl \
-&& brew install \
+RUN brew install \
     bash \
     bash-completion@2 \
     curl \
