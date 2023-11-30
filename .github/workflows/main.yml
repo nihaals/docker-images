@@ -16,7 +16,7 @@ jobs:
     name: Generate matrix
     runs-on: ubuntu-latest
     env:
-      python-version: "3.8"
+      python-version: "3.11"
     outputs:
       matrix: ${{ steps.generate-matrix.outputs.matrix }}
     steps:

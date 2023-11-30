@@ -1,22 +1,20 @@
-from __future__ import annotations
-
 import json
 import os
 from pathlib import Path
-from typing import Dict, List, TypedDict
+from typing import Self, TypedDict
 
 ROOT_PATH = Path(__file__).parent
 ROOT_IMAGES_PATH = ROOT_PATH.joinpath('images')
 
 
 class InfoDict(TypedDict):
-    aliases: Dict[str, str]
+    aliases: dict[str, str]
 
 
 class Version:
     """Represents a tag of an image."""
 
-    def __init__(self, path: str, tags: List[str]) -> None:
+    def __init__(self, path: str, tags: list[str]) -> None:
         self.name = path.split('/')[1].lower()
         self.path = path
         self.tags = tags
@@ -25,14 +23,14 @@ class Version:
 class Image:
     """Represents an image name. Contains `Version`s (tags)."""
 
-    def __init__(self, path: str, versions: List[Version]) -> None:
+    def __init__(self, path: str, versions: list[Version]) -> None:
         self.path = path
         self.name = self.path.title()
         self.image_name = self.path.lower()
         self.versions = versions
 
     @classmethod
-    def from_path(cls, path: str) -> Image:
+    def from_path(cls, path: str) -> Self:
         """Create an `Image` from its path e.g. `'playground'`."""
         image_path = ROOT_IMAGES_PATH.joinpath(path)
         if image_path.joinpath('info.json').exists() is False:
@@ -41,7 +39,7 @@ class Image:
         with open(ROOT_IMAGES_PATH.joinpath(path, 'info.json')) as fp:
             info_json: InfoDict = json.load(fp)
 
-        sub_paths: List[str] = []  # List of paths of `Version`s
+        sub_paths: list[str] = []  # List of paths of `Version`s
         for sub_item in os.scandir(image_path):
             sub_item_path = image_path.joinpath(sub_item.name)
             if sub_item_path.is_dir() is False:
@@ -65,7 +63,7 @@ class Image:
                 raise ValueError(f"No tag {alias_prev} in {path}")
         return cls(path, versions)
 
-    def as_out(self) -> List[Dict[str, str]]:
+    def as_out(self) -> list[dict[str, str]]:
         return [
             {
                 'human-name': f'{self.name}: {version.tags[0]}' if len(self.versions) > 1 else self.name,
