@@ -3,6 +3,6 @@
     "latest": "buster-slim"
   },
   "platforms": {
-    "buster-slim": ["linux/amd64"]
+    "buster-slim": ["linux/amd64", "linux/arm64/v8"]
   }
 }
