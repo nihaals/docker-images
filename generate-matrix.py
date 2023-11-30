@@ -9,15 +9,17 @@ ROOT_IMAGES_PATH = ROOT_PATH.joinpath('images')
 
 class InfoDict(TypedDict):
     aliases: dict[str, str]
+    platforms: dict[str, list[str]]
 
 
 class Version:
     """Represents a tag of an image."""
 
-    def __init__(self, path: str, tags: list[str]) -> None:
+    def __init__(self, path: str, tags: list[str], platforms: list[str]) -> None:
         self.name = path.split('/')[1].lower()
         self.path = path
         self.tags = tags
+        self.platforms = platforms
 
 
 class Image:
@@ -48,7 +50,7 @@ class Image:
             if sub_item_path.joinpath('Dockerfile').exists() is False:
                 raise ValueError(f"Invalid file structure for {path}/{sub_item.name}. Missing Dockerfile")
             sub_paths.append(sub_item_path.name)
-        versions = [Version(f'{path}/{sub_path}', [sub_path]) for sub_path in sub_paths]
+        versions = [Version(f'{path}/{sub_path}', [sub_path], info_json['platforms'][sub_path]) for sub_path in sub_paths]
 
         # Add aliases to list of tags each `Version` represents
         aliases = info_json['aliases']
@@ -70,6 +72,7 @@ class Image:
                 'path': str(ROOT_IMAGES_PATH.joinpath(version.path).relative_to(ROOT_PATH)),
                 'image-name': self.image_name,
                 'tags': ','.join(version.tags),
+                'platforms': ','.join(version.platforms)
             }
             for version in self.versions
         ]

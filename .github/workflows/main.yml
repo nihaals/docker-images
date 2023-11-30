@@ -40,6 +40,7 @@ jobs:
     name: ${{ matrix.human-name }}
     steps:
       - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
       - name: Build and push ${{ matrix.human-name }} to Docker Hub
         uses: elgohr/Publish-Docker-Github-Action@v5
         with:
@@ -48,5 +49,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tags: ${{ matrix.tags }}
+          platforms: ${{ matrix.platforms }}
           buildoptions: "--pull"
           cache: ${{ github.event_name != 'schedule' }}

@@ -1,5 +1,8 @@
 {
   "aliases": {
     "latest": "buster-slim"
+  },
+  "platforms": {
+    "buster-slim": ["linux/amd64"]
   }
 }

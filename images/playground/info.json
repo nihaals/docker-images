@@ -2,5 +2,12 @@
   "aliases": {
     "ubuntu": "ubuntu-20.04",
     "homebrew-ubuntu": "homebrew-ubuntu-20.04"
+  },
+  "platforms": {
+    "alpine": ["linux/amd64"],
+    "archlinux": ["linux/amd64"],
+    "buster": ["linux/amd64"],
+    "homebrew-ubuntu-20.04": ["linux/amd64"],
+    "ubuntu-20.04": ["linux/amd64"]
   }
 }

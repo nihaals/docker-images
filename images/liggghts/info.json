@@ -1,5 +1,8 @@
 {
   "aliases": {
     "latest": "ubuntu-20.04"
+  },
+  "platforms": {
+    "ubuntu-20.04": ["linux/amd64"]
   }
 }
