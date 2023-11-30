@@ -35,7 +35,7 @@ class Image:
         image_path = ROOT_IMAGES_PATH.joinpath(path)
         if image_path.joinpath('info.json').exists() is False:
             # Check if image directory has an `info.json`
-            raise ValueError(f"Invalid file strucutre for {path}. No info.json")
+            raise ValueError(f"Invalid file structure for {path}. No info.json")
         with open(ROOT_IMAGES_PATH.joinpath(path, 'info.json')) as fp:
             info_json: InfoDict = json.load(fp)
 
@@ -46,7 +46,7 @@ class Image:
                 continue
             # Validate `Version` directory structure
             if sub_item_path.joinpath('Dockerfile').exists() is False:
-                raise ValueError(f"Invalid file strucutre for {path}/{sub_item.name}. Missing Dockerfile")
+                raise ValueError(f"Invalid file structure for {path}/{sub_item.name}. Missing Dockerfile")
             sub_paths.append(sub_item_path.name)
         versions = [Version(f'{path}/{sub_path}', [sub_path]) for sub_path in sub_paths]
 
