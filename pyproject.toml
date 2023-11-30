@@ -17,27 +17,6 @@ flake8 = "^6"
 line-length = 120
 target-version = ['py311']
 skip-string-normalization = true
-include = '\.pyi?$'
-exclude = '''
-(
-  /(
-      \.eggs
-    | \.git
-    | \.hg
-    | \.mypy_cache
-    | \.tox
-    | \.venv
-    | \.vscode
-    | \.idea
-    | _build
-    | buck-out
-    | build
-    | dist
-  )/
-  | src
-  | book
-)
-'''
 
 [tool.isort]
 line_length = 120
