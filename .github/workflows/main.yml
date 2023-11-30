@@ -20,9 +20,9 @@ jobs:
     outputs:
       matrix: ${{ steps.generate-matrix.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup Python ${{ env.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ env.python-version }}
       - name: Generate matrix
@@ -39,7 +39,7 @@ jobs:
       DOCKER_USERNAME: "orangutan"
     name: ${{ matrix.human-name }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Build and push ${{ matrix.human-name }} to Docker Hub
         uses: elgohr/Publish-Docker-Github-Action@v5
         with:
