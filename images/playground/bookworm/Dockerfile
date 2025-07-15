@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bookworm
 ENV DEBIAN_FRONTEND=noninteractive
 ENV SHELL /bin/bash
 RUN apt-get update \

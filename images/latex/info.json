@@ -1,8 +1,8 @@
 {
   "aliases": {
-    "latest": "buster-slim"
+    "latest": "bookworm-slim"
   },
   "platforms": {
-    "buster-slim": ["linux/amd64"]
+    "bookworm-slim": ["linux/amd64"]
   }
 }

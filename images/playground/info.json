@@ -6,7 +6,7 @@
   "platforms": {
     "alpine": ["linux/amd64", "linux/arm64/v8"],
     "archlinux": ["linux/amd64"],
-    "buster": ["linux/amd64", "linux/arm64/v8"],
+    "bookworm": ["linux/amd64", "linux/arm64/v8"],
     "homebrew-ubuntu-20.04": ["linux/amd64"],
     "ubuntu-20.04": ["linux/amd64", "linux/arm64/v8"]
   }
